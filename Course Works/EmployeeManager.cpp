@@ -129,8 +129,7 @@ std::unique_ptr<RequestResponse<void*>> EmployeeManager::Edit() {
 			else 
 				res = employees[ind]->Promote();
 		}
-
-		if (typ == "Developer") {
+		else if (typ == "Developer") {
 			auto Dev = dynamic_cast<Developer*>(employees[ind]);
 			if (opt == 5) {
 				std::cout << "Which Project you want to finish\n";
