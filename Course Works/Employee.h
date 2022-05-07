@@ -1,22 +1,35 @@
 #pragma once
-#include <string>
 #include "SeniorityEnum.h"
 #include "Date.h"
+#include "RequestResponse.h"
 
 class Employee{
 private:
 	std::string name;
 	std::string surname;
-	int salary;
-	char pid[11]; //Personal ID
+	unsigned int salary;
+	unsigned long long pid; //Personal ID
 	Date expirationDate; // Contract Expiration Date
-	float satisfactionScore; // Companies Satisfaction by current employee
 	Seniority seniority;
 
 public:
-	void ExtendContract(int y, int m, int d);
-	void SetSalary(int s);
-	void Promote();
-	virtual float EvalateSetisfaction() = 0;
-	virtual float EvalateSuccessRate() = 0;
+	Employee();
+	Employee(std::string, std::string, int, unsigned long long, Date, Seniority);
+
+	std::string GetName();
+	std::string GetSurname();
+	unsigned int GetSalary();
+	unsigned long long GetPID();
+	Date GetExpirationDate();
+	Seniority GetSeniority();
+
+	std::unique_ptr<RequestResponse<void*>> ExtendContract(int, int, int);
+	std::unique_ptr<RequestResponse<void*>> CancelContract();
+	std::unique_ptr<RequestResponse<void*>> SetSalary(int);
+	std::unique_ptr<RequestResponse<void*>> Promote();
+
+	virtual float EvaluateWorkLoad() const = 0;
+	
+	bool operator>(const Employee&) const;
+	bool operator<(const Employee&) const;
 };

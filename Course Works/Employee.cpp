@@ -1,6 +1,6 @@
 #include "Employee.h"
 
-
+Employee::Employee() :name(""), surname(""), salary(0), pid(0), expirationDate(Date(0, 0, 0)), seniority(Seniority::Intern) {};
 Employee::Employee(std::string n, std::string s, int sal, unsigned long long p, Date exp, Seniority sen) {
 	name = n;
 	surname = s;
@@ -68,5 +68,18 @@ std::unique_ptr<RequestResponse<void*>> Employee::Promote() {
 		res.reset(new SuccessfulResponse<void*>());
 	}
 	return res;
+}
+
+
+bool Employee::operator > (Employee const& obj) const{
+	if (EvaluateWorkLoad() > obj.EvaluateWorkLoad())
+		return true;
+	return false;
+}
+
+bool Employee::operator < (Employee const& obj) const {
+	if (EvaluateWorkLoad() < obj.EvaluateWorkLoad())
+		return true;
+	return false;
 }
 

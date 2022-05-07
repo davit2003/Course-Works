@@ -139,15 +139,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Accountant.cpp" />
     <ClCompile Include="Course Works.cpp" />
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Developer.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="EmployeeManager.cpp" />
+    <ClCompile Include="MarketingManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accountant.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Developer.h" />
+    <ClInclude Include="EmployeeManager.h" />
+    <ClInclude Include="EmployeeType.h" />
+    <ClInclude Include="ErrorCode.h" />
     <ClInclude Include="MarketingManager.h" />
+    <ClInclude Include="RequestResponse.h" />
     <ClInclude Include="SeniorityEnum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

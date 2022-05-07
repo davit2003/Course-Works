@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+#include "RequestResponse.h"
 
 class Date {
 private:
@@ -7,7 +9,9 @@ private:
 	int month;
 	int day;
 public:
-	Date(int y, int m, int d) : year(y), month(m), day(d) {};
-	void SetDate(int y, int m, int d);
-	void AddDate(int y, int m, int d);
+	Date();
+	Date(int, int, int);
+	std::unique_ptr<RequestResponse<void*>> SetDate(int, int, int);
+	std::unique_ptr<RequestResponse<void*>> AddDate(int, int, int);
+	std::string Format();
 };
