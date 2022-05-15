@@ -14,4 +14,8 @@ public:
 	std::unique_ptr<RequestResponse<void*>> SetDate(int, int, int);
 	std::unique_ptr<RequestResponse<void*>> AddDate(int, int, int);
 	std::string Format();
+
+
+	bool operator>(const Date&) const;
+	bool operator<(const Date&) const;
 };

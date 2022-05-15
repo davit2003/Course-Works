@@ -1,6 +1,5 @@
 #include "Date.h"
 #include "RequestResponse.h"
-#include <iomanip>
 
 Date::Date() : year(0), month(0), day(0) {};
 
@@ -41,4 +40,11 @@ std::string Date::Format() {
 	formatedDate = buffer;
 	
 	return formatedDate;
+}
+
+
+bool Date::operator > (Date const& obj) const {
+	if (year > obj.year || (year == obj.year && month > obj.month) || (year == obj.year && month == obj.month && day > obj.day))
+		return true;
+	return false;
 }
